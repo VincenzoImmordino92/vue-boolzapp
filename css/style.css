@@ -1,0 +1,40 @@
+:root{
+  --color-gray:rgb(234, 234, 234);
+
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.bg-duo{
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    to top,rgb(218, 219, 212)85%, rgb(0, 150, 136)15%);
+}
+
+.container_main{
+  border: 1px solid black;
+  width: 95%;
+  height: 95%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.sidebar-left{
+  background-color: var(--color-gray);
+  width: 40%;
+  height: 100%;
+  border: 1px solid black;
+
+}
+
+.sidebar-right{
+  background-color: var(--color-gray);
+  width: 60%;
+  height: 100%;
+  border: 1px solid black;
+}
