@@ -21,11 +21,40 @@
   <main class="bg-duo d-flex ">
     <!-- container principale -->
     <div class="container_main custom d-flex  ">
-      <!-- sidebar di sinistra -->
+      <!-- sidebar di sinistra per gli utenti con le conversazioni da selezionare-->
       <div class="sidebar-left">
-        <div class="user_personal"></div>
+        <div class="user_personal align-items-center  d-flex">
+          <div class="img-box bordo">
+            <img src="./img/avatar_1.jpg" alt="avatar_1">
+          </div>
+          <p>Vincenzo</p>
+          <!-- Inserire i font Awesone -->
+        </div>
+          <!-- box di notifiche -->
+          <div class="user_notifiche d-flex align-items-center bordo">
+            <div class="img-box bordo">
+              <img src="./img/avatar_1.jpg" alt="avatar_1">
+            </div>
+            <div class="text_box d-flex flex-column">
+              <p>Ricevi notifiche di nuovi messaggi</p>
+              <a href="#">Attiva notifiche desktop</a>
+            </div>
+            
+          </div>
+          <!-- input di ricerca dell'user -->
+          <input type="text" placeholder="Cerca o Inizia una nuova chat">
+          <!-- box dei nostri user -->
+          <div class="box_user">
+            <div class="user bordo d-flex align-items-center">
+              <div class="img-box bordo">
+                <img src="./img/avatar_1.jpg" alt="avatar_1">
+              </div>
+              <p>Vincenzo</p>
+            </div>
+            
+          </div>
       </div>
-      <!-- sidebar di destra -->
+      <!-- sidebar di destra per l'utente selezionato -->
       <div class="sidebar-right">
         <div class="user_personal"></div>
       </div>

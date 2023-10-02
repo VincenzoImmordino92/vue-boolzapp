@@ -1,11 +1,19 @@
 :root{
   --color-gray:rgb(234, 234, 234);
-
+  --color-celeste:rgb(142, 218, 252);
 }
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+p{
+  margin: 0;
+}
+
+.bordo{
+border: 1px solid black;
 }
 
 
@@ -21,6 +29,7 @@
   width: 95%;
   height: 95%;
   max-width: 1000px;
+  /* min-width: 660px; */
   margin: auto;
 }
 
@@ -29,7 +38,48 @@
   width: 40%;
   height: 100%;
   border: 1px solid black;
+}
 
+.user_personal{
+  width: 100%;
+  height: 60px;
+}
+
+.user_notifiche{
+  width: 100%;
+  height: 60px;
+  background-color: var(--color-celeste);
+}
+
+.img-box{
+  width: 60px;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.img-box img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+input{
+  width: 100%;
+}
+
+.text_box a{
+  line-height: 10px;
+}
+
+.box_user{
+  height: calc(100% - 151px);
+  overflow-y: scroll;
+}
+
+.user{
+  width: calc(100% - 13px);
+  height: 60px;
+  
 }
 
 .sidebar-right{
