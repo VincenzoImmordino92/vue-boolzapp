@@ -8,8 +8,20 @@
   box-sizing: border-box;
 }
 
+body{
+  font-size: .8rem;
+}
+
 p{
   margin: 0;
+}
+
+li{
+  list-style: none;
+}
+
+ul{
+  padding: 0px;
 }
 
 .bordo{
@@ -45,26 +57,57 @@ border: 1px solid black;
   height: 60px;
 }
 
-.user_notifiche{
-  width: 100%;
-  height: 60px;
-  background-color: var(--color-celeste);
+.box_awesome{
+  color: gray;
+  margin: 0px 10px;
+}
+.box_awesome i{
+  font-size: 1.2rem;
+  margin: 0 10px;
 }
 
 .img-box{
   width: 60px;
   height: 100%;
   border-radius: 50%;
+  padding: 10px;
+}
+
+.img-box p{
+  font-size: .9rem;
+  margin-left: 5px;
 }
 
 .img-box img{
-  width: 100%;
-  height: 100%;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
 }
 
-input{
+.user_notifiche{
   width: 100%;
+  height: 60px;
+  background-color: var(--color-celeste);
+  padding: 10px;
+}
+
+.user_notifiche .i-box{
+background-color: white;
+width: 40px;
+border-radius: 50%;
+aspect-ratio: 1;
+margin-right:10px;
+}
+
+.user_notifiche .i-box i{
+  font-size: 1.2rem;
+  color: var(--color-celeste);
+}
+
+.input-group{
+  width: 100%;
+  height: 50px;
+  padding: 5px;
 }
 
 .text_box a{
@@ -72,15 +115,27 @@ input{
 }
 
 .box_user{
-  height: calc(100% - 151px);
+  height: calc(100% - 170px);
   overflow-y: scroll;
 }
 
-.user{
-  width: calc(100% - 13px);
-  height: 60px;
-  
+.box_user ul li{
+  position: relative;
 }
+
+.box_user ul li img{
+width: 50px;
+border-radius: 50%;
+}
+
+.box_user ul li .clock{
+position: absolute;
+right: 0;
+
+}
+
+
+
 
 .sidebar-right{
   background-color: var(--color-gray);
@@ -88,3 +143,4 @@ input{
   height: 100%;
   border: 1px solid black;
 }
+

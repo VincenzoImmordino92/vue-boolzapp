@@ -9,9 +9,13 @@
 
   <!-- CDN VUE -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- link CSS -->
     <link rel="stylesheet" href="./css/style.css">
+    
 
   <title>Document</title>
 </head>
@@ -19,21 +23,36 @@
   <div id="app">
     <!-- sfondo bicolore al main -->
   <main class="bg-duo d-flex ">
+
     <!-- container principale -->
     <div class="container_main custom d-flex  ">
+
       <!-- sidebar di sinistra per gli utenti con le conversazioni da selezionare-->
       <div class="sidebar-left">
-        <div class="user_personal align-items-center  d-flex">
-          <div class="img-box bordo">
-            <img src="./img/avatar_1.jpg" alt="avatar_1">
+        <!-- box del mio personale contatto -->
+        <div class="user_personal justify-content-between  align-items-center d-flex">
+
+          <div class="img-box d-flex align-items-center">
+            <img src="./img/avatar_io.jpg" alt="avatar_io">
+            <p>Silvia</p>
           </div>
-          <p>Vincenzo</p>
-          <!-- Inserire i font Awesone -->
+          
+          <!-- Font Awesome -->
+          <div class="box_awesome d-flex">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          
         </div>
+
+
+
+
           <!-- box di notifiche -->
           <div class="user_notifiche d-flex align-items-center bordo">
-            <div class="img-box bordo">
-              <img src="./img/avatar_1.jpg" alt="avatar_1">
+            <div class="i-box d-flex justify-content-center align-items-center ">
+              <i class="fa-solid fa-bell-slash"></i>
             </div>
             <div class="text_box d-flex flex-column">
               <p>Ricevi notifiche di nuovi messaggi</p>
@@ -41,22 +60,47 @@
             </div>
             
           </div>
+
+          
           <!-- input di ricerca dell'user -->
-          <input type="text" placeholder="Cerca o Inizia una nuova chat">
+          <div class="input-group">
+            <button class="input-group-text">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input type="text" class="form-control" placeholder="Cerca o inizi una nuova chat">
+          </div>
+
+
           <!-- box dei nostri user -->
           <div class="box_user">
-            <div class="user bordo d-flex align-items-center">
-              <div class="img-box bordo">
-                <img src="./img/avatar_1.jpg" alt="avatar_1">
-              </div>
-              <p>Vincenzo</p>
-            </div>
-            
+            <ul v-for="contact in contacts" class="">
+              <li class="d-flex">
+                <img class="img" :src="contact.avatar" alt="">
+                <div class="text_box d-flex flex-column ">
+                  <span>{{contact.name}}</span>
+                  <span>Ultimo messaggo</span>
+                </div>
+                <span class="clock">12:00</span>
+                
+              </li>
+            </ul>
           </div>
       </div>
+
+
+
+
       <!-- sidebar di destra per l'utente selezionato -->
-      <div class="sidebar-right">
-        <div class="user_personal"></div>
+      <div class="sidebar-right">     
+        <div class="user_personal">
+        <div class="img-box d-flex align-items-center">
+            <img :src="contacts[counter].avatar" alt="avatar_1">
+            <p>{{contacts[counter].name}}</p>
+          </div>
+        </div>
+        <div class="box_conversazione">
+          
+        </div>
       </div>
       
     </div>
