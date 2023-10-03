@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- CDN BOOTSTRAP -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">  
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+ 
+ <!-- CDN Luxor -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/luxor@3.4.3/build/global/luxor.min.js"></script> -->
 
   <!-- CDN VUE -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -112,19 +115,17 @@
 
         </div>
         <div  class="box_conversazione">
-        <div v-for="messaggi in messages" class="messaggi_ricevuti">
-          <div class="box_messaggio_ricevuti" :class="{}">
-            <div class="messaggio_testo">{{ contacts }}</div>
-            <div class="messaggio_orario">{{ contacts.date }}</div>
+          <div v-for="messaggio in contacts[counter].messages" class="box_messaggio_ricevuti" :class="{{ messaggio.status}}">
+            <div class="messaggio_testo">{{ messaggio.message }}</div>
+            <div class="messaggio_orario">{{ messaggio.date }}</div>
           </div>
-        </div>
 
-        <div class="messaggi_inviati">
+        
           <div class="box_messaggio_inviati sent">
-            <div class="messaggio_testo">ciao</div>
-            <div class="messaggio_orario">orario</div>
+            <div class="messaggio_testo">{{ messaggio.message }}</div>
+            <div class="messaggio_orario">{{ messaggio.date }}</div>
           </div>
-        </div>
+        
         
           
         </div>

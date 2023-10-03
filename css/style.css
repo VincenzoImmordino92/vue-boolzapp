@@ -166,20 +166,9 @@ right: 0;
   content:''; 
 }
 
-.messaggi_ricevuti{
-float: left;
-padding: 10px;
-}
-
-.messaggi_inviati{
-  float: right;
-  padding: 10px;
-}
-
-
-
 .box_messaggio_ricevuti{
-  
+  float: left;
+  padding: 10px;
   width: 200px;
   height: 50px;
   background-color: white;
@@ -190,7 +179,9 @@ padding: 10px;
   width: 200px;
   height: 50px;
   background-color:rgb(213, 249, 186);
-  border-radius: 10px;
+  border-radius: 10px; 
+  float: right;
+  padding: 10px;
 }
 
 .messaggio_testo{
