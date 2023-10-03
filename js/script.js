@@ -171,8 +171,13 @@ createApp({
     }
   },
   methods:{
+   
 
   },
+  computed:{
+
+  },
+
   mounted(){
 
   }

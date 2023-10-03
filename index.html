@@ -21,10 +21,11 @@
 </head>
 <body>
   <div id="app">
-    <!-- sfondo bicolore al main -->
+    
+
   <main class="bg-duo d-flex ">
 
-    <!-- container principale -->
+    
     <div class="container_main custom d-flex  ">
 
       <!-- sidebar di sinistra per gli utenti con le conversazioni da selezionare-->
@@ -37,7 +38,7 @@
             <p>Silvia</p>
           </div>
           
-          <!-- Font Awesome -->
+          
           <div class="box_awesome d-flex">
             <i class="fa-solid fa-circle-notch"></i>
             <i class="fa-solid fa-message"></i>
@@ -50,7 +51,7 @@
 
 
           <!-- box di notifiche -->
-          <div class="user_notifiche d-flex align-items-center bordo">
+          <div class="user_notifiche d-flex align-items-center ">
             <div class="i-box d-flex justify-content-center align-items-center ">
               <i class="fa-solid fa-bell-slash"></i>
             </div>
@@ -73,12 +74,12 @@
 
           <!-- box dei nostri user -->
           <div class="box_user">
-            <ul v-for="contact in contacts" class="">
-              <li class="d-flex">
+            <ul v-for="(contact, index) in contacts" class="">
+              <li @click="counter = index" class="d-flex active">
                 <img class="img" :src="contact.avatar" alt="">
                 <div class="text_box d-flex flex-column ">
                   <span>{{contact.name}}</span>
-                  <span>Ultimo messaggo</span>
+                  <span>Ultimo messaggio</span>
                 </div>
                 <span class="clock">12:00</span>
                 
@@ -88,17 +89,53 @@
       </div>
 
 
-
-
       <!-- sidebar di destra per l'utente selezionato -->
       <div class="sidebar-right">     
-        <div class="user_personal">
-        <div class="img-box d-flex align-items-center">
+        <div class="user_personal d-flex justify-content-between align-items-center ">
+
+        <div class="info-box d-flex ">
+
             <img :src="contacts[counter].avatar" alt="avatar_1">
-            <p>{{contacts[counter].name}}</p>
+
+            <div class="user_box_info">
+              <p>{{contacts[counter].name}}</p>
+              <span>ultimo accesso</span>
+            </div>
+    
+        </div>
+
+        <div class="box_awesome d-flex">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <i class="fa-solid fa-paperclip"></i>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+
+        </div>
+        <div  class="box_conversazione">
+        <div v-for="messaggi in messages" class="messaggi_ricevuti">
+          <div class="box_messaggio_ricevuti" :class="{}">
+            <div class="messaggio_testo">{{ contacts }}</div>
+            <div class="messaggio_orario">{{ contacts.date }}</div>
           </div>
         </div>
-        <div class="box_conversazione">
+
+        <div class="messaggi_inviati">
+          <div class="box_messaggio_inviati sent">
+            <div class="messaggio_testo">ciao</div>
+            <div class="messaggio_orario">orario</div>
+          </div>
+        </div>
+        
+          
+        </div>
+
+        <div class="input_conversation d-flex justify-content-evenly  align-items-center ">
+
+          <i class="fa-regular fa-face-smile"></i>
+          
+          <input type="text" class="form-control" placeholder="Cerca o inizi una nuova chat">
+          
+          <i class="fa-solid fa-microphone"></i>
           
         </div>
       </div>
