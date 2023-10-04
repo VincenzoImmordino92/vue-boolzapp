@@ -1,161 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- CDN BOOTSTRAP -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
- 
- <!-- CDN Luxor -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/luxor@3.4.3/build/global/luxor.min.js"></script> -->
+    <!-- CDN BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- CDN VUE -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CDN Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js"></script>
 
-  <!-- link CSS -->
-    <link rel="stylesheet" href="./css/style.css">
-    
+    <!-- CDN VUE -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-  <title>Document</title>
-</head>
-<body>
-  <div id="app">
-    
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <main class="bg-duo d-flex ">
+    <!-- link CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
 
-    
-    <div class="container_main custom d-flex  ">
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <main class="bg-duo d-flex">
+        <div class="container_main custom d-flex">
+          <!-- sidebar di sinistra per gli utenti con le conversazioni da selezionare-->
+          <div class="sidebar-left">
+            <!-- box del mio personale contatto -->
+            <div
+              class="user_personal justify-content-between align-items-center d-flex"
+            >
+              <div class="img-box d-flex align-items-center">
+                <img src="./img/avatar_io.jpg" alt="avatar_io" />
+                <p>Silvia</p>
+              </div>
 
-      <!-- sidebar di sinistra per gli utenti con le conversazioni da selezionare-->
-      <div class="sidebar-left">
-        <!-- box del mio personale contatto -->
-        <div class="user_personal justify-content-between  align-items-center d-flex">
-
-          <div class="img-box d-flex align-items-center">
-            <img src="./img/avatar_io.jpg" alt="avatar_io">
-            <p>Silvia</p>
-          </div>
-          
-          
-          <div class="box_awesome d-flex">
-            <i class="fa-solid fa-circle-notch"></i>
-            <i class="fa-solid fa-message"></i>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-          
-        </div>
-
-
-
-
-          <!-- box di notifiche -->
-          <div class="user_notifiche d-flex align-items-center ">
-            <div class="i-box d-flex justify-content-center align-items-center ">
-              <i class="fa-solid fa-bell-slash"></i>
+              <div class="box_awesome d-flex">
+                <i class="fa-solid fa-circle-notch"></i>
+                <i class="fa-solid fa-message"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
             </div>
-            <div class="text_box d-flex flex-column">
-              <p>Ricevi notifiche di nuovi messaggi</p>
-              <a href="#">Attiva notifiche desktop</a>
+
+            <!-- box di notifiche -->
+            <div class="user_notifiche d-flex align-items-center">
+              <div
+                class="i-box d-flex justify-content-center align-items-center"
+              >
+                <i class="fa-solid fa-bell-slash"></i>
+              </div>
+              <div class="text_box d-flex flex-column">
+                <p>Ricevi notifiche di nuovi messaggi</p>
+                <a href="#">Attiva notifiche desktop</a>
+              </div>
             </div>
-            
+
+            <!-- input di ricerca dell'user -->
+            <div class="input-group">
+              <button class="input-group-text">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <input
+                v-model="searchInput"
+                type="text"
+                class="form-control"
+                placeholder="Cerca o inizi una nuova chat"
+              />
+            </div>
+
+            <!-- box dei nostri user -->
+            <div class="box_user">
+              <ul v-for="(contact, index) in searchContacts" class="">
+                <li @click="selectedIndex = index" class="d-flex active">
+                  <img class="img" :src="contact.avatar" :alt="contact.name" />
+                  <div class="text_box d-flex flex-column">
+                    <span>{{contact.name}}</span>
+                    <span>{{ contact.messages[contact.messages.length-1].message }}</span>
+                  </div>
+                  <span class="clock">{{ contact.messages[contact.messages.length-1].date }}</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          
-          <!-- input di ricerca dell'user -->
-          <div class="input-group">
-            <button class="input-group-text">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-            <input type="text" class="form-control" placeholder="Cerca o inizi una nuova chat">
-          </div>
+          <!-- sidebar di destra per l'utente selezionato -->
+          <div class="sidebar-right">
+            <div
+              class="user_personal d-flex justify-content-between align-items-center"
+            >
+              <div class="info-box d-flex">
+                <img :src="contacts[selectedIndex].avatar" :alt="contacts[selectedIndex].name" />
 
-
-          <!-- box dei nostri user -->
-          <div class="box_user">
-            <ul v-for="(contact, index) in contacts" class="">
-              <li @click="counter = index" class="d-flex active">
-                <img class="img" :src="contact.avatar" alt="">
-                <div class="text_box d-flex flex-column ">
-                  <span>{{contact.name}}</span>
-                  <span>Ultimo messaggio</span>
+                <div class="user_box_info">
+                  <p>{{contacts[selectedIndex].name}}</p>
+                  <span>Ultimo accesso:</span>
                 </div>
-                <span class="clock">12:00</span>
-                
-              </li>
-            </ul>
-          </div>
-      </div>
+              </div>
 
-
-      <!-- sidebar di destra per l'utente selezionato -->
-      <div class="sidebar-right">     
-        <div class="user_personal d-flex justify-content-between align-items-center ">
-
-        <div class="info-box d-flex ">
-
-            <img :src="contacts[counter].avatar" alt="avatar_1">
-
-            <div class="user_box_info">
-              <p>{{contacts[counter].name}}</p>
-              <span>ultimo accesso</span>
+              <div class="box_awesome d-flex">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-paperclip"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
             </div>
-    
-        </div>
+            <div class="box_conversazione">
+              <div
+                v-for="(messaggio, messaggioIndex) in contacts[selectedIndex].messages"
+                class="box_messaggio"
+              >
+                <div class="row" :class="{'justify-content-end':messaggio.status === 'sent'}">
+                  <div class="col-auto">
+                    <div :class="messaggio.status">
+                      <div class="row">
+                        <div class="col">
+                          <div class="messaggio_testo">
+                            {{ messaggio.message }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div class="options">
+                            <div class="dropdown">
+                              <i
+                                class="fa-solid fa-chevron-down"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              ></i>
 
-        <div class="box_awesome d-flex">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <i class="fa-solid fa-paperclip"></i>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </div>
+                              <ul class="dropdown-menu">
+                                <li>
+                                  <a class="dropdown-item" href="#"
+                                    >Message info</a
+                                  >
+                                </li>
+                                <li>
+                                  <a class="dropdown-item" href="#" @click="deleteMessage(messaggioIndex)"
+                                    >Delete Message</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="messaggio_orario">
+                            {{ messaggio.date }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        </div>
-        <div  class="box_conversazione">
-          <div v-for="messaggio in contacts[counter].messages" class="box_messaggio_ricevuti" :class="{{ messaggio.status}}">
-            <div class="messaggio_testo">{{ messaggio.message }}</div>
-            <div class="messaggio_orario">{{ messaggio.date }}</div>
+            <div
+              class="input_conversation d-flex justify-content-evenly align-items-center"
+            >
+              <i class="fa-regular fa-face-smile"></i>
+
+              <input
+                @keyup.enter="sendMessage"
+                v-model.trim="inputMessage"
+                type="text"
+                class="form-control"
+                placeholder="Cerca o inizi una nuova chat"
+              />
+
+              <i class="fa-solid fa-microphone"></i>
+            </div>
           </div>
-
-        
-          <div class="box_messaggio_inviati sent">
-            <div class="messaggio_testo">{{ messaggio.message }}</div>
-            <div class="messaggio_orario">{{ messaggio.date }}</div>
-          </div>
-        
-        
-          
         </div>
-
-        <div class="input_conversation d-flex justify-content-evenly  align-items-center ">
-
-          <i class="fa-regular fa-face-smile"></i>
-          
-          <input type="text" class="form-control" placeholder="Cerca o inizi una nuova chat">
-          
-          <i class="fa-solid fa-microphone"></i>
-          
-        </div>
-      </div>
-      
+      </main>
     </div>
-  </main>
-  
-    
 
-
-
-
-
-
-
-  </div>
-
-
-
-  <script src="./js/script.js"></script>
-</body>
+    <script src="./js/script.js"></script>
+  </body>
 </html>

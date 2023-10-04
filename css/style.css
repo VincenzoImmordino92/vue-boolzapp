@@ -36,7 +36,7 @@ ul{
 .container_main{
   width: 95%;
   height: 95%;
-  max-width: 1000px;
+  max-width: 1200px;
   /* min-width: 660px; */
   margin: auto;
 }
@@ -45,7 +45,7 @@ ul{
 
 .sidebar-left{
   background-color: var(--color-gray);
-  width: 40%;
+  width: 30%;
   height: 100%;
 }
 
@@ -127,6 +127,7 @@ margin-right:10px;
 
 .box_user li.active:hover{
   background-color: rgb(226, 226, 226);
+  cursor: pointer;
 }
 
 .box_user ul li img{
@@ -144,7 +145,7 @@ right: 0;
 
 .sidebar-right{
   background-color: var(--color-gray);
-  width: 60%;
+  width: 70%;
   height: 100%;
 }
 
@@ -166,34 +167,39 @@ right: 0;
   content:''; 
 }
 
-.box_messaggio_ricevuti{
-  float: left;
+.box_messaggio{
+  width: 100%;
   padding: 10px;
-  width: 200px;
-  height: 50px;
-  background-color: white;
-  border-radius: 10px;
 }
 
-.box_messaggio_inviati{  
+.received, .sent{ 
   width: 200px;
-  height: 50px;
-  background-color:rgb(213, 249, 186);
   border-radius: 10px; 
-  float: right;
   padding: 10px;
+}
+
+.received{
+  background-color:white;
+
+}
+
+.sent{
+  background-color:rgb(213, 249, 186);
 }
 
 .messaggio_testo{
   float: left;
-  margin-top: 15px;
-  margin-left: 10px;
 }
 
 .messaggio_orario{
   float: right;
-  margin-top: 30px;
   margin-right: 10px;
+}
+
+.options{
+  float: right;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 
 
