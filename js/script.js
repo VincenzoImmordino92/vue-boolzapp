@@ -192,6 +192,7 @@ createApp({
         },
         deleteMessage(index){
             this.contacts[this.selectedIndex].messages.splice(index, 1)
+        
         },
         
 
@@ -201,7 +202,7 @@ createApp({
         searchContacts() {
             return this.contacts.filter((contact) => {
                 return contact.name.toLowerCase().includes(this.searchInput.toLowerCase())
-            })
+            }) 
         }
     },
 

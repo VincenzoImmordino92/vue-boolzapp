@@ -1,6 +1,7 @@
 :root{
   --color-gray:rgb(234, 234, 234);
   --color-celeste:rgb(142, 218, 252);
+  --color-text-gray:rgb(201, 199, 201);
 }
 *{
   padding: 0;
@@ -10,6 +11,7 @@
 
 body{
   font-size: .8rem;
+  font-family: 'Lato', sans-serif;
 }
 
 p{
@@ -26,18 +28,21 @@ ul{
   margin: 0px;
 }
 
+/* Box Main container */
+
 .bg-duo{
   height: 100vh;
   width: 100%;
   background: linear-gradient(
-    to top,rgb(218, 219, 212)85%, rgb(0, 150, 136)15%);
+    to top,
+    rgb(218, 219, 212)85%,
+    rgb(0, 150, 136)15%);
 }
 
 .container_main{
   width: 95%;
   height: 95%;
   max-width: 1200px;
-  /* min-width: 660px; */
   margin: auto;
 }
 
@@ -49,18 +54,10 @@ ul{
   height: 100%;
 }
 
+/* box personal user */
 .user_personal{
   width: 100%;
   height: 60px;
-}
-
-.box_awesome{
-  color: gray;
-  margin: 0px 10px;
-}
-.box_awesome i{
-  font-size: 1.2rem;
-  margin: 0 10px;
 }
 
 .img-box{
@@ -70,16 +67,31 @@ ul{
   padding: 10px;
 }
 
-.img-box p{
-  font-size: .9rem;
-  margin-left: 5px;
-}
-
 .img-box img{
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
+
+.img-box p{
+  font-size: .9rem;
+  margin-left: 5px;
+}
+
+.box_awesome{
+  color:rgb(176, 176, 176);
+  margin: 0px 10px;
+}
+
+.box_awesome i{
+  font-size: 1.3rem;
+  margin: 0 10px;
+}
+
+/* / box personal user */
+
+
+/* box user_notifiche  */
 
 .user_notifiche{
   width: 100%;
@@ -96,10 +108,20 @@ aspect-ratio: 1;
 margin-right:10px;
 }
 
+.text_box_notifiche a{
+  line-height: 10px;
+  color: gray;
+}
+
 .user_notifiche .i-box i{
   font-size: 1.2rem;
   color: var(--color-celeste);
 }
+
+/* / box user_notifiche  */
+
+
+/* box input group */
 
 .input-group{
   width: 100%;
@@ -107,10 +129,24 @@ margin-right:10px;
   padding: 5px;
 }
 
-.text_box a{
-  line-height: 10px;
-  color: gray;
+.input-group-text{
+  background-color: white;
+  padding: 0.375rem 18px;
 }
+
+.input-group-text i{
+  color: rgb(181, 184, 186);
+}
+
+.form-control::placeholder{
+  font-size: 0.7rem;
+  color:rgb(123, 123, 123);
+}
+
+/* / box input group */
+
+
+/* box box_user */
 
 .box_user{
   height: calc(100% - 170px);
@@ -118,7 +154,19 @@ margin-right:10px;
   background-color: white
 }
 
+.text_box{
+  margin-top: 10px;
+  margin-left: 5px;
+}
 
+.user_name{
+  font-weight: bold;
+}
+
+.user_lastmessage{
+font-size: 0.7rem;
+color: rgb(183, 185, 186);
+}
 
 .box_user ul li{
   position: relative;
@@ -137,6 +185,8 @@ border-radius: 50%;
 
 .box_user ul li .clock{
 position: absolute;
+font-size: 0.6rem;
+color: rgb(183, 185, 186);
 right: 0;
 
 }
@@ -154,46 +204,62 @@ right: 0;
   border-left:1px solid rgb(209, 208, 208) ;
 }
 
-.user_box_info{
-  width: 200px;
+.info-box{
+  height: 50px;
 }
+
+.user_box_info{
+  padding-top: 7px;
+}
+
+.ultimo_messaggio{
+  font-size: 0.7rem;
+  color: rgb(183, 185, 186);
+
+}
+
+/* box_conversazione */
 
 .box_conversazione{
   background-image: url(../img/mine.jpg);
   width: 100%;
   height: calc(100% - 130px);
-  clear: both;
-  display: table;
-  content:''; 
+  overflow-y: scroll;
+  padding: 20px;
 }
 
 .box_messaggio{
-  width: 100%;
   padding: 10px;
 }
 
 .received, .sent{ 
-  width: 200px;
   border-radius: 10px; 
   padding: 10px;
 }
 
+.messaggio_testo{
+  float: left;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}
+
 .received{
   background-color:white;
+  margin-right:40px ;
 
 }
 
 .sent{
   background-color:rgb(213, 249, 186);
-}
-
-.messaggio_testo{
-  float: left;
+  margin-left:40px ;
 }
 
 .messaggio_orario{
   float: right;
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: rgb(183, 185, 186);
 }
 
 .options{
@@ -202,11 +268,13 @@ right: 0;
   cursor: pointer;
 }
 
+/* box input_conversation */
 
 .input_conversation{
   width: 100%;
   height: 70px;
 }
+
 .input_conversation i{
   color: gray;
   font-size: 1.4rem;
@@ -216,13 +284,9 @@ right: 0;
   width: 80%;
 }
 
-.info-box{
-  width: 200px;
-  height: 50px;
-}
-
 .info-box img{
   border-radius: 50%;
   margin-right: 10px;
 }
+
 

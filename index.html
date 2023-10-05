@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CDN BOOTSTRAP -->
     <link
@@ -41,15 +48,16 @@
     <div id="app">
       <main class="bg-duo d-flex">
         <div class="container_main custom d-flex">
+
           <!-- sidebar di sinistra per gli utenti con le conversazioni da selezionare-->
           <div class="sidebar-left">
+
             <!-- box del mio personale contatto -->
-            <div
-              class="user_personal justify-content-between align-items-center d-flex"
-            >
+            <div class="user_personal justify-content-between align-items-center d-flex">
+
               <div class="img-box d-flex align-items-center">
                 <img src="./img/avatar_io.jpg" alt="avatar_io" />
-                <p>Silvia</p>
+                <p class="user_name">Silvia</p>
               </div>
 
               <div class="box_awesome d-flex">
@@ -57,26 +65,35 @@
                 <i class="fa-solid fa-message"></i>
                 <i class="fa-solid fa-ellipsis-vertical"></i>
               </div>
+
             </div>
 
             <!-- box di notifiche -->
             <div class="user_notifiche d-flex align-items-center">
-              <div
-                class="i-box d-flex justify-content-center align-items-center"
-              >
+              <div class="i-box d-flex justify-content-center align-items-center">
+
                 <i class="fa-solid fa-bell-slash"></i>
+
               </div>
-              <div class="text_box d-flex flex-column">
+
+              <div class="text_box_notifiche d-flex flex-column">
+
                 <p>Ricevi notifiche di nuovi messaggi</p>
                 <a href="#">Attiva notifiche desktop</a>
+
               </div>
+
             </div>
 
             <!-- input di ricerca dell'user -->
             <div class="input-group">
+
               <button class="input-group-text">
+
                 <i class="fa-solid fa-magnifying-glass"></i>
+
               </button>
+
               <input
                 v-model="searchInput"
                 type="text"
@@ -87,31 +104,46 @@
 
             <!-- box dei nostri user -->
             <div class="box_user">
-              <ul v-for="(contact, index) in searchContacts" class="">
+
+              <!-- ciclo la mia array filtrata con la funzione searchContacts dandogli i parametri dei contact e l'index -->
+              <ul v-for="(contact, index) in searchContacts">
+                <!-- al click seleziono i miei contatti tramite selectedIndex che è uguale all'indice ciclato -->
                 <li @click="selectedIndex = index" class="d-flex active">
-                  <img class="img" :src="contact.avatar" :alt="contact.name" />
+
+                  <img class="img" :src="contact.avatar" :alt="contact.name"/>
+
                   <div class="text_box d-flex flex-column">
-                    <span>{{contact.name}}</span>
-                    <span>{{ contact.messages[contact.messages.length-1].message }}</span>
+
+                    <span class="user_name">{{contact.name}}</span>
+                    <span v-if="contact.messages.length > 0" class="user_lastmessage">{{ contact.messages[contact.messages.length-1].message }}</span>
+                  
                   </div>
-                  <span class="clock">{{ contact.messages[contact.messages.length-1].date }}</span>
+
+                  <span v-if="contact.messages.length > 0" class="clock">{{ contact.messages[contact.messages.length-1].date }}</span>
                 </li>
+
               </ul>
+
             </div>
+
           </div>
 
           <!-- sidebar di destra per l'utente selezionato -->
           <div class="sidebar-right">
-            <div
-              class="user_personal d-flex justify-content-between align-items-center"
-            >
+            <!-- box_user_personale dell'utente selezionato -->
+            <div class="user_personal d-flex justify-content-between align-items-center">
+              <!-- box info_user selezionato -->
               <div class="info-box d-flex">
-                <img :src="contacts[selectedIndex].avatar" :alt="contacts[selectedIndex].name" />
+                <img
+                  :src="contacts[selectedIndex].avatar"
+                  :alt="contacts[selectedIndex].name"
+                />
 
                 <div class="user_box_info">
-                  <p>{{contacts[selectedIndex].name}}</p>
-                  <span>Ultimo accesso:</span>
+                  <p class="user_name">{{contacts[selectedIndex].name}}</p>
+                  <span v-if="contacts[selectedIndex].messages.length > 0" class="ultimo_messaggio" >Ultimo messaggio: {{ contacts[selectedIndex].messages[contacts[selectedIndex].messages.length- 1].date }}</span>
                 </div>
+
               </div>
 
               <div class="box_awesome d-flex">
@@ -119,22 +151,31 @@
                 <i class="fa-solid fa-paperclip"></i>
                 <i class="fa-solid fa-ellipsis-vertical"></i>
               </div>
+
             </div>
+            <!-- box_conversazione dove ciclo il mio array di messages per stampare i messaggi ricevuti e inviati -->
             <div class="box_conversazione">
+
               <div
                 v-for="(messaggio, messaggioIndex) in contacts[selectedIndex].messages"
-                class="box_messaggio"
-              >
-                <div class="row" :class="{'justify-content-end':messaggio.status === 'sent'}">
+                class="box_messaggio">
+
+                <div
+                  class="row"
+                  :class="{'justify-content-end':messaggio.status === 'sent'}">
+
                   <div class="col-auto">
+
                     <div :class="messaggio.status">
+
                       <div class="row">
                         <div class="col">
-                          <div class="messaggio_testo">
-                            {{ messaggio.message }}
-                          </div>
+
+                          <div class="messaggio_testo">{{ messaggio.message }}</div>
+
                         </div>
                       </div>
+
                       <div class="row">
                         <div class="col">
                           <div class="options">
@@ -152,7 +193,10 @@
                                   >
                                 </li>
                                 <li>
-                                  <a class="dropdown-item" href="#" @click="deleteMessage(messaggioIndex)"
+                                  <a
+                                    class="dropdown-item"
+                                    href="#"
+                                    @click="deleteMessage(messaggioIndex)"
                                     >Delete Message</a
                                   >
                                 </li>
